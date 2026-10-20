@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# POST-DEPLOYMENT TODO: Add a Sitemap directive after the public website URL is confirmed.
