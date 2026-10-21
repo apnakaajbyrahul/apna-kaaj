@@ -24,7 +24,7 @@ ${field("rmMsg", "Requirement", '<textarea id="rmMsg" name="message" rows="3" ma
 <div id="rmNote" class="rm-n" role="status" hidden></div>
 <div class="rm-a"><button class="btn" id="rmGo" type="submit">Submit Request</button><button class="btn btn-d" type="button" id="rmWa">Continue on WhatsApp</button></div><p class="rm-privacy">By submitting, you agree that APNA KAAJ may use these details to contact you about this service request. <a href="${root}privacy.html">Privacy Policy</a></p></form>`;
   const g = id => $("#" + id).value.trim();
-  const data = () => ({ timestamp: new Date().toISOString(), requestId: reqId, name: g("rmName"), mobile: g("rmMob").replace(/\s/g, ""), location: g("rmLoc"), business: ctx.business, service: ctx.service, requiredDate: g("rmDate"), message: g("rmMsg"), status: "New" });
+  const data = () => ({ timestamp: new Date().toISOString(), requestId: reqId, name: g("rmName"), mobile: g("rmMob").replace(/\s/g, ""), location: g("rmLoc"), business: ctx.business, service: ctx.service, requiredDate: g("rmDate"), message: g("rmMsg"), status: "New", website: document.querySelector(".hp input").value });
   const waText = d => `Hello, I want to request: ${d.service} (${d.business}).` + (d.name ? `\nName: ${d.name}` : "") + (d.mobile ? `\nMobile: ${d.mobile}` : "") + (d.location ? `\nLocation: ${d.location}` : "") + (d.requiredDate ? `\nDate: ${d.requiredDate}` : "") + (d.message ? `\nRequirement: ${d.message}` : "") + `\nRef: ${d.requestId}`;
   function note(kind, html) { const n = $("#rmNote"); n.className = "rm-n " + kind; n.innerHTML = html; n.hidden = false; }
   function valid() {
